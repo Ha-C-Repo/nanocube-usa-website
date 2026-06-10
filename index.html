@@ -7,166 +7,149 @@
 <meta name="description" content="Houston structural steel fabricator and erector. One partner from design through erection. Conventional rolled steel shells for retail, office, warehouse, mixed-use, and light industrial. Not a pre-engineered metal building.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+/* Theme v2 - MCA Direction. Locked 2026-06-10. See BRAND_KIT_v2.md */
 :root{
-  --carbon:#0a0a0c; --carbon-2:#111114; --carbon-3:#18181d;
-  --steel:#1f2229; --steel-light:#2a2e38;
-  --line:rgba(255,255,255,0.06); --line-bright:rgba(255,255,255,0.14);
-  --molten:#ff5f00; --molten-bright:#ff8a00; --molten-deep:#c44600; --molten-glow:rgba(255,95,0,0.35);
-  --gold:#ffd700;
-  --text:#f5f5f7; --text-mute:#8a92a6; --text-dim:#565d6e;
-  --display:'Big Shoulders Display','Impact',sans-serif;
-  --body:'Manrope',system-ui,sans-serif;
-  --mono:'JetBrains Mono','SF Mono',monospace;
+  --panel:#ffffff; --panel-2:#f5f5f3; --panel-3:#ebebe8;
+  --seam:#d8d8d4;
+  --ink:#0d0d0f; --ink-2:#54585c; --ink-3:#8b9094;
+  --accent:#2e6e66; --accent-soft:rgba(46,110,102,0.12);
+  --display:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --body:'Inter',system-ui,sans-serif;
+  --radius:0px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  background:var(--carbon); color:var(--text); font-family:var(--body);
+  background:var(--panel); color:var(--ink); font-family:var(--body);
   line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden;
-}
-body::before{
-  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
-  background-image:
-    linear-gradient(var(--line) 1px,transparent 1px),
-    linear-gradient(90deg,var(--line) 1px,transparent 1px);
-  background-size:64px 64px; opacity:.5;
 }
 .wrap{max-width:1200px;margin:0 auto;padding:0 32px;position:relative;z-index:1}
 a{color:inherit;text-decoration:none}
 
 /* Eyebrow */
-.eyebrow{font-family:var(--mono);text-transform:uppercase;letter-spacing:.28em;font-size:.72rem;color:var(--molten);display:inline-block;margin-bottom:20px}
-.eyebrow.dim{color:var(--text-dim)}
-.num{font-family:var(--mono);color:var(--molten);font-size:.72rem;letter-spacing:.1em}
+.eyebrow{font-family:var(--body);font-weight:500;text-transform:uppercase;letter-spacing:.3em;font-size:.72rem;color:var(--ink-3);display:inline-block;margin-bottom:20px}
+.num{font-family:var(--body);font-weight:500;color:var(--accent);font-size:.72rem;letter-spacing:.1em}
 
-/* Headlines */
-h1,h2,h3{font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.92;letter-spacing:-.01em}
-h2{font-size:clamp(2.4rem,6vw,4.5rem)}
-h3{font-size:1.4rem;font-weight:800}
-.molten-text{
-  background:linear-gradient(var(--molten-bright) 0%,var(--molten) 70%,var(--molten-deep) 100%);
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
-}
+/* Headlines: the wordmark treatment */
+h1,h2,h3{font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:1.02;letter-spacing:.04em}
+h2{font-size:clamp(2.1rem,5vw,3.8rem)}
+h3{font-size:1.25rem;font-weight:700}
+.accent-text{color:var(--accent)}
 
-/* Buttons */
-.btn{display:inline-flex;align-items:center;gap:10px;border-radius:0;padding:17px 30px;font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:2px;font-size:.95rem;cursor:pointer;transition:.18s;border:1px solid transparent}
-.btn-primary{background:linear-gradient(135deg,var(--molten) 0%,var(--molten-deep) 100%);color:#fff;box-shadow:0 0 26px var(--molten-glow)}
-.btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
-.btn-secondary{background:transparent;color:var(--text);border-color:var(--line-bright)}
-.btn-secondary:hover{border-color:var(--molten);color:var(--molten)}
+/* Buttons: flat, no glow */
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:0;padding:16px 30px;font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.15em;font-size:.85rem;cursor:pointer;transition:.18s;border:1px solid transparent}
+.btn-primary{background:var(--ink);color:var(--panel);border-color:var(--ink)}
+.btn-primary:hover{background:var(--accent);border-color:var(--accent)}
+.btn-secondary{background:transparent;color:var(--ink);border-color:var(--seam)}
+.btn-secondary:hover{border-color:var(--ink)}
 
 /* Nav */
-nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(10px);background:rgba(10,10,12,.7);border-bottom:1px solid var(--line)}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(10px);background:rgba(255,255,255,.85);border-bottom:1px solid var(--seam)}
 .nav-inner{max-width:1200px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:10px}
 .brand-mark{width:26px;height:26px}
-.brand-word{font-family:var(--display);font-weight:800;font-size:1.15rem;letter-spacing:.04em;text-transform:lowercase}
-.brand-word b{color:var(--molten);font-weight:800}
+.brand-word{font-family:var(--display);font-weight:800;font-size:1.05rem;letter-spacing:.08em;text-transform:uppercase}
+.brand-word b{color:var(--accent);font-weight:800}
 .nav-links{display:flex;gap:30px;align-items:center}
-.nav-links a{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute);transition:.15s}
-.nav-links a:hover{color:var(--text)}
-.nav-phone{font-family:var(--display);font-weight:700;letter-spacing:1px;color:var(--molten)!important}
+.nav-links a{font-family:var(--body);font-weight:500;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);transition:.15s}
+.nav-links a:hover{color:var(--ink)}
+.nav-phone{font-family:var(--display);font-weight:700;letter-spacing:.08em;color:var(--ink)!important}
 @media(max-width:860px){.nav-links a:not(.nav-phone){display:none}}
 
 /* Hero */
-.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 60px;position:relative}
-.hero::after{content:"";position:absolute;top:-10%;right:-5%;width:55%;height:70%;background:radial-gradient(ellipse at center,var(--molten-glow),transparent 65%);opacity:.5;filter:blur(40px);pointer-events:none}
-.hero h1{font-size:clamp(3rem,9vw,7.5rem);margin:8px 0 26px}
-.hero p.lead{font-size:clamp(1.05rem,2vw,1.3rem);color:var(--text-mute);max-width:620px;margin-bottom:36px}
+.hero{min-height:92vh;display:flex;align-items:center;padding:140px 0 60px;background:var(--panel)}
+.hero h1{font-size:clamp(2.6rem,7.5vw,6rem);margin:8px 0 28px}
+.hero p.lead{font-size:clamp(1.02rem,1.8vw,1.22rem);color:var(--ink-2);max-width:620px;margin-bottom:36px}
 .hero-cta{display:flex;gap:16px;flex-wrap:wrap}
 
 /* Stat strip */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-top:70px}
-.stat{padding:28px 20px;border-right:1px solid var(--line)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--seam);margin-top:70px}
+.stat{padding:28px 20px;border-right:1px solid var(--seam)}
 .stat:last-child{border-right:none}
-.stat .v{font-family:var(--display);font-weight:900;font-size:2.4rem;line-height:1;color:var(--text)}
-.stat .l{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);margin-top:8px}
+.stat .v{font-family:var(--display);font-weight:800;font-size:2.3rem;line-height:1;color:var(--ink)}
+.stat .l{font-family:var(--body);font-weight:500;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-top:8px}
 @media(max-width:680px){.stats{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:none}}
 
 /* Sections */
 section{padding:110px 0;position:relative}
+section.alt{background:var(--panel-2);border-top:1px solid var(--seam);border-bottom:1px solid var(--seam)}
 .section-head{max-width:760px;margin-bottom:60px}
-.section-head p{color:var(--text-mute);font-size:1.1rem;margin-top:18px}
+.section-head p{color:var(--ink-2);font-size:1.08rem;margin-top:18px}
 
 /* Spine (5 stages) */
-.spine{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--line)}
-.stage{padding:34px 24px;border-right:1px solid var(--line);transition:.2s}
+.spine{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--seam);background:var(--panel)}
+.stage{padding:34px 24px;border-right:1px solid var(--seam);transition:.2s}
 .stage:last-child{border-right:none}
-.stage:hover{background:var(--carbon-2)}
+.stage:hover{background:var(--panel-2)}
 .stage .num{display:block;margin-bottom:18px}
-.stage h3{font-size:1.5rem;color:var(--text)}
-.stage p{color:var(--text-mute);font-size:.92rem;margin-top:12px}
-@media(max-width:900px){.spine{grid-template-columns:repeat(1,1fr)}.stage{border-right:none;border-bottom:1px solid var(--line)}.stage:last-child{border-bottom:none}}
+.stage h3{font-size:1.3rem;color:var(--ink)}
+.stage p{color:var(--ink-2);font-size:.92rem;margin-top:12px}
+@media(max-width:900px){.spine{grid-template-columns:repeat(1,1fr)}.stage{border-right:none;border-bottom:1px solid var(--seam)}.stage:last-child{border-bottom:none}}
 
 /* Differentiator */
-.diff{background:var(--carbon-2);border:1px solid var(--line);padding:60px;text-align:center}
+.diff{background:var(--panel);border:1px solid var(--seam);padding:60px;text-align:center}
 .diff h2{margin-bottom:22px}
 .diff h2 span{display:block}
-.diff p{color:var(--text-mute);max-width:680px;margin:0 auto;font-size:1.12rem}
+.diff p{color:var(--ink-2);max-width:680px;margin:0 auto;font-size:1.1rem}
 
 /* Two-col shell includes */
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.col{background:var(--carbon-3);border:1px solid var(--line);padding:38px}
-.col h3{color:var(--molten);font-size:1.6rem;margin-bottom:22px}
+.col{background:var(--panel);border:1px solid var(--seam);padding:38px}
+.col h3{color:var(--ink);font-size:1.4rem;margin-bottom:22px;border-bottom:2px solid var(--accent);display:inline-block;padding-bottom:8px}
 .col ul{list-style:none}
-.col li{padding:13px 0;border-bottom:1px solid var(--line);color:var(--text-mute);display:flex;gap:12px;align-items:flex-start}
+.col li{padding:13px 0;border-bottom:1px solid var(--seam);color:var(--ink-2);display:flex;gap:12px;align-items:flex-start}
 .col li:last-child{border-bottom:none}
-.col li::before{content:"";width:7px;height:7px;background:var(--molten);margin-top:9px;flex:none}
+.col li::before{content:"";width:7px;height:7px;background:var(--accent);margin-top:9px;flex:none}
 @media(max-width:760px){.cols{grid-template-columns:1fr}}
 
 /* Use cases */
 .uses{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-.use{background:var(--carbon-2);border:1px solid var(--line);padding:30px 20px;transition:.2s}
-.use:hover{border-color:var(--molten);background:var(--carbon-3)}
+.use{background:var(--panel);border:1px solid var(--seam);padding:30px 20px;transition:.2s}
+.use:hover{border-color:var(--accent);background:var(--accent-soft)}
 .use .num{display:block;margin-bottom:16px}
-.use h3{font-size:1.05rem;color:var(--text)}
+.use h3{font-size:.98rem;color:var(--ink)}
 @media(max-width:900px){.uses{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.uses{grid-template-columns:1fr}}
 
 /* How it works */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .step{padding:0 8px}
-.step .bignum{font-family:var(--display);font-weight:900;font-size:3.4rem;color:var(--molten-deep);line-height:1}
-.step h3{font-size:1.5rem;margin:14px 0 12px;color:var(--text)}
-.step p{color:var(--text-mute);font-size:.95rem}
+.step .bignum{font-family:var(--display);font-weight:800;font-size:3rem;color:var(--panel-3);-webkit-text-stroke:1px var(--ink-3);line-height:1}
+.step h3{font-size:1.3rem;margin:14px 0 12px;color:var(--ink)}
+.step p{color:var(--ink-2);font-size:.95rem}
 @media(max-width:760px){.steps{grid-template-columns:1fr;gap:34px}}
 
-/* Work / portfolio */
-.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.work{position:relative;background:var(--carbon-3);border:1px solid var(--line);aspect-ratio:16/10;display:flex;flex-direction:column;justify-content:flex-end;padding:28px;overflow:hidden}
-.work::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,var(--steel),var(--carbon));opacity:.6}
-.work .num{position:relative;margin-bottom:auto}
-.work h3{position:relative;font-size:1.5rem;color:var(--text)}
-.work .loc{position:relative;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--molten);margin-top:6px}
-.work-note{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);margin-top:24px;text-align:center}
-.render{margin:0 0 28px;border:1px solid var(--line);background:var(--carbon-3)}
+/* Renders */
+.render{margin:0 0 28px;border:1px solid var(--seam);background:var(--panel)}
 .render img{display:block;width:100%;height:auto}
-.render figcaption{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);padding:12px 16px}
-@media(max-width:760px){.work-grid{grid-template-columns:1fr}}
+.render figcaption{font-family:var(--body);font-weight:500;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);padding:12px 16px;border-top:1px solid var(--seam)}
 
 /* Credentials */
-.creds{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--line)}
-.cred{padding:26px 16px;border-right:1px solid var(--line);text-align:center}
+.creds{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--seam);background:var(--panel)}
+.cred{padding:26px 16px;border-right:1px solid var(--seam);text-align:center}
 .cred:last-child{border-right:none}
-.cred .t{font-family:var(--display);font-weight:800;font-size:1rem;color:var(--text)}
-.cred .s{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);margin-top:8px}
+.cred .t{font-family:var(--display);font-weight:700;font-size:.95rem;color:var(--ink)}
+.cred .s{font-family:var(--body);font-weight:500;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-top:8px}
 @media(max-width:900px){.creds{grid-template-columns:repeat(3,1fr)}.cred:nth-child(3){border-right:none}}
-@media(max-width:480px){.creds{grid-template-columns:repeat(2,1fr)}.cred:nth-child(odd){border-right:1px solid var(--line)}.cred:nth-child(even){border-right:none}}
+@media(max-width:480px){.creds{grid-template-columns:repeat(2,1fr)}.cred:nth-child(odd){border-right:1px solid var(--seam)}.cred:nth-child(even){border-right:none}}
+
+/* Wordmark divider (the MCA repetition device) */
+.markband{border-top:1px solid var(--seam);border-bottom:1px solid var(--seam);background:var(--panel-2);overflow:hidden;padding:18px 0;white-space:nowrap}
+.markband span{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.18em;font-size:1rem;color:var(--ink-3);margin:0 36px}
 
 /* Final CTA */
-.final{text-align:center;position:relative}
-.final::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60%;height:60%;background:radial-gradient(ellipse at center,var(--molten-glow),transparent 65%);opacity:.4;filter:blur(50px);pointer-events:none}
+.final{text-align:center}
 .final h2{margin-bottom:20px}
-.final p{color:var(--text-mute);font-size:1.15rem;max-width:560px;margin:0 auto 36px}
+.final p{color:var(--ink-2);font-size:1.12rem;max-width:560px;margin:0 auto 36px}
 .final .hero-cta{justify-content:center}
 
 /* Footer */
-footer{border-top:1px solid var(--line);padding:50px 0}
+footer{border-top:1px solid var(--seam);padding:50px 0;background:var(--panel-2)}
 .foot-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
-.foot-inner .addr{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);text-align:center}
-.foot-inner .copy{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim)}
+.foot-inner .addr{font-family:var(--body);font-weight:500;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);text-align:center}
+.foot-inner .copy{font-family:var(--body);font-weight:500;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
 
 /* Reveal */
 .reveal{opacity:0;transform:translateY(24px);transition:.7s cubic-bezier(.2,.7,.2,1)}
@@ -179,12 +162,12 @@ footer{border-top:1px solid var(--line);padding:50px 0}
   <div class="nav-inner">
     <a href="#top" class="brand">
       <svg class="brand-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 2 L28 9 L28 23 L16 30 L4 23 L4 9 Z" stroke="#ff5f00" stroke-width="2" fill="none"/>
-        <path d="M16 2 L28 9 L16 16 L4 9 Z" fill="#ff5f00" opacity="0.9"/>
-        <path d="M16 16 L28 9 L28 23 L16 30 Z" fill="#c44600" opacity="0.7"/>
-        <path d="M16 16 L4 9 L4 23 L16 30 Z" fill="#ff8a00" opacity="0.5"/>
+        <path d="M16 2 L28 9 L28 23 L16 30 L4 23 L4 9 Z" stroke="#0d0d0f" stroke-width="2" fill="none"/>
+        <path d="M16 2 L28 9 L16 16 L4 9 Z" fill="#0d0d0f" opacity="0.9"/>
+        <path d="M16 16 L28 9 L28 23 L16 30 Z" fill="#2e6e66" opacity="0.85"/>
+        <path d="M16 16 L4 9 L4 23 L16 30 Z" fill="#54585c" opacity="0.5"/>
       </svg>
-      <span class="brand-word">nano cube <b>usa</b></span>
+      <span class="brand-word">Nano Cube <b>USA</b></span>
     </a>
     <div class="nav-links">
       <a href="#process">Process</a>
@@ -192,6 +175,7 @@ footer{border-top:1px solid var(--line);padding:50px 0}
       <a href="#uses">Markets</a>
       <a href="#renders">Renders</a>
       <a href="#inhouse">In-house</a>
+      <a href="https://training.nanocubeusa.com" target="_blank" rel="noopener">Team Login</a>
       <a href="tel:7132552172" class="nav-phone">(713) 255-2172</a>
     </div>
   </div>
@@ -200,7 +184,7 @@ footer{border-top:1px solid var(--line);padding:50px 0}
 <header class="hero" id="top">
   <div class="wrap">
     <span class="eyebrow">Houston, TX &middot; Structural Steel &middot; Est. 2017</span>
-    <h1>One partner.<br><span class="molten-text">Concept to completion.</span></h1>
+    <h1>One partner.<br><span class="accent-text">Concept to completion.</span></h1>
     <p class="lead">Design, engineer, fabricate, envelope, and erect. One Houston steel shop that takes a project from a concept or a set of drawings all the way to a finished, weather-tight shell. Conventional rolled steel. Not a pre-engineered metal building.</p>
     <div class="hero-cta">
       <a href="tel:7132552172" class="btn btn-primary">Call (713) 255-2172</a>
@@ -215,11 +199,15 @@ footer{border-top:1px solid var(--line);padding:50px 0}
   </div>
 </header>
 
+<div class="markband" aria-hidden="true">
+  <span>Nano Cube USA</span><span>Nano Cube USA</span><span>Nano Cube USA</span><span>Nano Cube USA</span><span>Nano Cube USA</span>
+</div>
+
 <section id="process">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">The five-stage spine</span>
-      <h2>From <span class="molten-text">design</span> to steel in the ground.</h2>
+      <h2>From <span class="accent-text">design</span> to steel in the ground.</h2>
       <p>Most projects pass through three or four companies before the steel goes up. We hold all five stages under one roof. One number to call. One company on the hook.</p>
     </div>
     <div class="spine reveal">
@@ -236,17 +224,17 @@ footer{border-top:1px solid var(--line);padding:50px 0}
   <div class="wrap">
     <div class="diff reveal">
       <span class="eyebrow">The difference</span>
-      <h2><span>Not a pre-engineered</span><span class="molten-text">metal building.</span></h2>
+      <h2><span>Not a pre-engineered</span><span class="accent-text">metal building.</span></h2>
       <p>PEMBs lock you into a manufacturer's catalog, fixed bay spacing, and a thin-gauge frame. We build with conventional rolled structural steel. Custom geometry, real load capacity, and a building that reads as architecture, not a warehouse kit.</p>
     </div>
   </div>
 </section>
 
-<section id="shell">
+<section id="shell" class="alt">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">What a complete shell includes</span>
-      <h2>Structure <span class="molten-text">and</span> envelope.</h2>
+      <h2>Structure <span class="accent-text">and</span> envelope.</h2>
       <p>A finished shell is more than the frame. We carry the structure and the envelope together, so there is no gap between trades and no finger-pointing when it is time to close in.</p>
     </div>
     <div class="cols reveal">
@@ -278,7 +266,7 @@ footer{border-top:1px solid var(--line);padding:50px 0}
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Built for any use</span>
-      <h2>One shell. <span class="molten-text">Many markets.</span></h2>
+      <h2>One shell. <span class="accent-text">Many markets.</span></h2>
     </div>
     <div class="uses reveal">
       <div class="use"><span class="num">/ 01</span><h3>Retail</h3></div>
@@ -290,11 +278,11 @@ footer{border-top:1px solid var(--line);padding:50px 0}
   </div>
 </section>
 
-<section id="how">
+<section id="how" class="alt">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">How it works</span>
-      <h2>Three steps to <span class="molten-text">built.</span></h2>
+      <h2>Three steps to <span class="accent-text">built.</span></h2>
       <p>For realtors, developers, and owners. Work with us directly, or alongside your client.</p>
     </div>
     <div class="steps reveal">
@@ -309,21 +297,21 @@ footer{border-top:1px solid var(--line);padding:50px 0}
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Illustrative renders</span>
-      <h2>Drawing-anchored <span class="molten-text">visualization.</span></h2>
+      <h2>Drawing-anchored <span class="accent-text">visualization.</span></h2>
       <p>Conventional rolled steel shells. Illustrative visualizations, not photographs of completed projects.</p>
     </div>
     <figure class="render reveal">
-      <img src="render-shell.jpg" alt="Illustrative render of a finished steel shell building at golden hour">
+      <img src="render-shell.jpg" alt="Illustrative render of a finished steel shell building">
       <figcaption>Illustrative render &middot; finished commercial shell</figcaption>
     </figure>
   </div>
 </section>
 
-<section id="inhouse">
+<section id="inhouse" class="alt">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">All in-house</span>
-      <h2>One partner. <span class="molten-text">No subs to chase.</span></h2>
+      <h2>One partner. <span class="accent-text">No subs to chase.</span></h2>
       <p>Detailing, fabrication, envelope, and erection under one roof. One number to call and one company on the hook, from the first sketch to the last bolt. Conventional rolled steel, not a pre-engineered metal building.</p>
     </div>
     <div class="uses reveal">
@@ -353,7 +341,7 @@ footer{border-top:1px solid var(--line);padding:50px 0}
   <div class="wrap">
     <div class="reveal">
       <span class="eyebrow">Let's build</span>
-      <h2>Bring us a site, a concept,<br>or a <span class="molten-text">set of drawings.</span></h2>
+      <h2>Bring us a site, a concept,<br>or a <span class="accent-text">set of drawings.</span></h2>
       <p>One partner from the first sketch to the last bolt. Tell us what you are building.</p>
       <div class="hero-cta">
         <a href="tel:7132552172" class="btn btn-primary">Call (713) 255-2172</a>
@@ -367,12 +355,12 @@ footer{border-top:1px solid var(--line);padding:50px 0}
   <div class="wrap foot-inner">
     <span class="brand">
       <svg class="brand-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 2 L28 9 L28 23 L16 30 L4 23 L4 9 Z" stroke="#ff5f00" stroke-width="2" fill="none"/>
-        <path d="M16 2 L28 9 L16 16 L4 9 Z" fill="#ff5f00" opacity="0.9"/>
-        <path d="M16 16 L28 9 L28 23 L16 30 Z" fill="#c44600" opacity="0.7"/>
-        <path d="M16 16 L4 9 L4 23 L16 30 Z" fill="#ff8a00" opacity="0.5"/>
+        <path d="M16 2 L28 9 L28 23 L16 30 L4 23 L4 9 Z" stroke="#0d0d0f" stroke-width="2" fill="none"/>
+        <path d="M16 2 L28 9 L16 16 L4 9 Z" fill="#0d0d0f" opacity="0.9"/>
+        <path d="M16 16 L28 9 L28 23 L16 30 Z" fill="#2e6e66" opacity="0.85"/>
+        <path d="M16 16 L4 9 L4 23 L16 30 Z" fill="#54585c" opacity="0.5"/>
       </svg>
-      <span class="brand-word">nano cube <b>usa</b></span>
+      <span class="brand-word">Nano Cube <b>USA</b></span>
     </span>
     <span class="addr">8630 Fairbanks N Houston Rd &middot; Houston, TX 77064 &middot; (713) 255-2172</span>
     <span class="copy">&copy; 2026 Nano Cube USA, LLC</span>
