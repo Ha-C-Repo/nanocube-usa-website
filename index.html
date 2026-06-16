@@ -1,407 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nano Cube USA - Structural Steel &amp; PEMB. Concept to Completion.</title>
-<meta name="description" content="Full-service structural steel engineering, fabrication, and erection plus complete Pre-Engineered Metal Buildings (PEMB). Houston-based, serving commercial and industrial projects nationwide. One coordinated team, concept to completion.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-/* ====== NANO CUBE USA - image-forward motif. ACCENT VARIANT: NAVY+RED ====== */
-:root{
-  /* __ACCENT_BLOCK_START__ */
-  --accent:#c0392b; --accent-hi:#e25c4d;
-  --steel:#22323d; --steel-2:#2c4150;
-  /* __ACCENT_BLOCK_END__ */
-  --ink:#0d0d0f; --ink-2:#54585c; --ink-3:#8b9094;
-  --panel:#ffffff; --panel-2:#f4f5f4; --seam:#d8d8d4;
-  --accent-soft:rgba(0,0,0,.05);
-  --display:'Archivo','Helvetica Neue',Arial,sans-serif;
-  --body:'Inter',system-ui,sans-serif;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:var(--body);color:var(--ink);background:var(--panel);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
-h1,h2,h3{font-family:var(--display);text-transform:uppercase;line-height:1.03;letter-spacing:.02em;font-weight:800}
-.eyebrow{font-family:var(--body);font-weight:600;text-transform:uppercase;letter-spacing:.32em;font-size:.7rem;color:var(--accent-hi)}
-.accent{color:var(--accent-hi)}
-.mark-accent{fill:var(--accent-hi)}
-
-/* top bar */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--steel);border-bottom:1px solid rgba(255,255,255,.10)}
-.nav-inner{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:11px}
-.brand-logo{height:50px;width:auto;display:block}
-.foot .brand-logo{height:46px}
-@media(max-width:600px){.brand-logo{height:40px}}
-.nav-links{display:flex;gap:26px;align-items:center}
-.nav-links a{font-family:var(--body);font-weight:500;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#c4c9ce;transition:.15s}
-.nav-links a:hover{color:#fff}
-.nav-call{font-family:var(--display);font-weight:700;letter-spacing:.06em;color:#fff!important;border:1px solid rgba(255,255,255,.25);padding:9px 16px}
-.nav-call:hover{background:var(--accent);border-color:var(--accent)}
-.menu-btn{display:none;background:none;border:0;cursor:pointer;width:34px;height:28px;position:relative}
-.menu-btn span{display:block;position:absolute;left:0;right:0;height:2px;background:#fff;transition:.2s}
-.menu-btn span:nth-child(1){top:4px}.menu-btn span:nth-child(2){top:13px}.menu-btn span:nth-child(3){top:22px}
-@media(max-width:960px){
-  .nav-links{position:fixed;top:78px;left:0;right:0;flex-direction:column;gap:0;background:var(--steel);border-bottom:1px solid rgba(255,255,255,.08);max-height:0;overflow:hidden;transition:max-height .25s ease}
-  .nav-links.open{max-height:460px}
-  .nav-links a{padding:16px 28px;width:100%;border-top:1px solid rgba(255,255,255,.06);font-size:.8rem}
-  .nav-call{border:0;padding:18px 28px}
-  .menu-btn{display:block}
-}
-
-/* full-bleed image blocks */
-.block{position:relative;min-height:88vh;display:flex;align-items:flex-end;background-size:cover;background-position:center;background-color:var(--steel);color:#fff}
-.block::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,12,14,.38) 0%,rgba(10,12,14,.32) 45%,rgba(10,12,14,.9) 100%)}
-.block .wrap{position:relative;z-index:2;width:100%;padding-top:120px;padding-bottom:64px}
-.block.short{min-height:62vh}
-.hero{min-height:100vh}
-.kicker{display:inline-block;margin-bottom:18px}
-.block h1{font-size:clamp(2.7rem,7.6vw,6.1rem);font-weight:900;max-width:15ch;text-shadow:0 2px 30px rgba(0,0,0,.45)}
-.block h2{font-size:clamp(2.1rem,5.6vw,4.4rem);font-weight:900;max-width:18ch;text-shadow:0 2px 30px rgba(0,0,0,.45)}
-.block p.lead{font-size:clamp(1.02rem,1.7vw,1.24rem);max-width:640px;margin:22px 0 30px;color:#e9ecee}
-.cta-row{display:flex;gap:14px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:9px;padding:16px 30px;font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:.82rem;cursor:pointer;transition:.18s;border:1px solid transparent}
-.btn-accent{background:var(--accent);color:#fff;border-color:var(--accent)}
-.btn-accent:hover{background:var(--accent-hi);border-color:var(--accent-hi)}
-.btn-ghost{background:rgba(255,255,255,.06);color:#fff;border-color:rgba(255,255,255,.4)}
-.btn-ghost:hover{background:#fff;color:var(--ink)}
-
-/* stat ribbon */
-.ribbon{background:var(--steel);color:#fff}
-.ribbon .grid{display:grid;grid-template-columns:repeat(4,1fr)}
-.ribbon .cell{padding:32px 22px;border-right:1px solid rgba(255,255,255,.09)}
-.ribbon .cell:last-child{border-right:none}
-.ribbon .v{font-family:var(--display);font-weight:900;font-size:1.7rem;line-height:1.1;letter-spacing:.02em}
-.ribbon .l{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:#9aa0a6;margin-top:8px}
-@media(max-width:680px){.ribbon .grid{grid-template-columns:repeat(2,1fr)}.ribbon .cell:nth-child(2){border-right:none}.ribbon .cell:nth-child(1),.ribbon .cell:nth-child(2){border-bottom:1px solid rgba(255,255,255,.09)}}
-
-/* light sections */
-section.panel{padding:100px 0;background:var(--panel)}
-section.panel.alt{background:var(--panel-2);border-top:1px solid var(--seam);border-bottom:1px solid var(--seam)}
-.shead{max-width:820px;margin-bottom:50px}
-.shead h2{font-size:clamp(2rem,5vw,3.5rem);color:var(--ink);font-weight:900}
-.shead p{color:var(--ink-2);font-size:1.06rem;margin-top:18px}
-
-/* capabilities grid (the 5) */
-.caps{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.cap{background:#fff;border:1px solid var(--seam);padding:34px}
-.cap.full{grid-column:1 / -1}
-.cap .n{font-family:var(--body);font-weight:600;color:var(--accent);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
-.cap h3{font-size:1.5rem;margin:12px 0 16px;color:var(--ink)}
-.cap ul{list-style:none}
-.cap li{padding:9px 0;border-bottom:1px solid var(--seam);color:var(--ink-2);display:flex;gap:11px;align-items:flex-start;font-size:.95rem}
-.cap li:last-child{border-bottom:none}
-.cap li::before{content:"";width:7px;height:7px;background:var(--accent);margin-top:8px;flex:none}
-.cap.full ul{columns:2;column-gap:40px}
-.cap.full li{break-inside:avoid}
-@media(max-width:760px){.caps{grid-template-columns:1fr}.cap.full ul{columns:1}}
-
-/* process spine */
-.spine{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--seam)}
-.stage{padding:32px 22px;border-right:1px solid var(--seam);transition:.2s}
-.stage:last-child{border-right:none}
-.stage:hover{background:#fff}
-.stage .n{font-family:var(--body);font-weight:600;color:var(--accent);font-size:.72rem;letter-spacing:.1em}
-.stage h3{font-size:1.25rem;margin:14px 0 10px;color:var(--ink)}
-.stage p{font-size:.9rem;color:var(--ink-2)}
-@media(max-width:820px){.spine{grid-template-columns:repeat(2,1fr)}.stage:nth-child(2){border-right:none}.stage:nth-child(1),.stage:nth-child(2){border-bottom:1px solid var(--seam)}}
-@media(max-width:480px){.spine{grid-template-columns:1fr}.stage{border-right:none;border-bottom:1px solid var(--seam)}.stage:last-child{border-bottom:none}}
-
-/* why grid */
-.why{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.why .item{background:#fff;border:1px solid var(--seam);padding:30px}
-.why .item .n{font-family:var(--display);font-weight:900;font-size:1.6rem;color:var(--panel-2);-webkit-text-stroke:1px var(--ink-3);line-height:1}
-.why .item h3{font-size:1.08rem;margin:14px 0 8px;color:var(--ink)}
-.why .item p{font-size:.92rem;color:var(--ink-2)}
-@media(max-width:820px){.why{grid-template-columns:1fr 1fr}}
-@media(max-width:520px){.why{grid-template-columns:1fr}}
-
-/* markets chips */
-.chips{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
-.chip{background:#fff;border:1px solid var(--seam);padding:26px 18px;transition:.2s}
-.chip:hover{border-color:var(--accent)}
-.chip .n{font-family:var(--body);font-weight:600;color:var(--accent);font-size:.7rem;letter-spacing:.1em}
-.chip h3{font-size:.95rem;color:var(--ink);margin-top:12px}
-@media(max-width:900px){.chips{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:480px){.chips{grid-template-columns:1fr}}
-
-/* credentials */
-.creds{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--seam);background:#fff}
-.cred{padding:26px 14px;border-right:1px solid var(--seam);text-align:center}
-.cred:last-child{border-right:none}
-.cred .t{font-family:var(--display);font-weight:700;font-size:.92rem;color:var(--ink)}
-.cred .s{font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-top:8px}
-@media(max-width:900px){.creds{grid-template-columns:repeat(3,1fr)}.cred:nth-child(3){border-right:none}}
-@media(max-width:480px){.creds{grid-template-columns:repeat(2,1fr)}.cred:nth-child(odd){border-right:1px solid var(--seam)}.cred:nth-child(even){border-right:none}}
-
-/* 3D model gallery */
-.models{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.model{background:#fff;border:1px solid var(--seam)}
-.model img{display:block;width:100%;height:auto}
-.model figcaption{font-family:var(--body);font-weight:600;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);padding:12px 16px;border-top:1px solid var(--seam)}
-@media(max-width:820px){.models{grid-template-columns:1fr}}
-
-/* illustrative tag */
-.illus{position:absolute;left:28px;bottom:22px;z-index:3;font-family:var(--body);font-weight:600;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:#cfd4d8;background:rgba(0,0,0,.4);padding:6px 12px;border:1px solid rgba(255,255,255,.18)}
-
-/* footer */
-footer{background:var(--steel);color:#fff;padding:54px 0 40px}
-.foot{display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between}
-.foot .brand-word{color:#fff}
-.foot .addr,.foot .copy{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:#9aa0a6}
-
-/* reveal - content is visible by default; only animates when JS is active */
-.reveal{transition:.7s cubic-bezier(.2,.7,.2,1)}
-html.janim .reveal{opacity:0;transform:translateY(22px)}
-html.janim .reveal.in{opacity:1;transform:none}
-</style>
-</head>
-<body>
-
-<nav>
-  <div class="nav-inner">
-    <a href="#top" class="brand">
-      <img src="img/logo.png" alt="Nano Cube USA" class="brand-logo">
-    </a>
-    <button class="menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
-    <div class="nav-links" id="navLinks">
-      <a href="#capabilities">Capabilities</a>
-      <a href="#models">3D Models</a>
-      <a href="#process">Process</a>
-      <a href="#why">Why Us</a>
-      <a href="#markets">Markets</a>
-      <a href="https://training.nanocubeusa.com" target="_blank" rel="noopener">Team Login</a>
-      <a href="tel:7132552172" class="nav-call">(713) 255-2172</a>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO -->
-<header class="block hero" id="top" style="background-image:url('img/hero.jpg')">
-  <div class="wrap">
-    <span class="eyebrow kicker">Houston, TX &middot; Structural Steel &amp; PEMB &middot; Est. 2017</span>
-    <h1>Structural steel,<br><span class="accent">concept to completion.</span></h1>
-    <p class="lead">A full-service structural steel engineering, fabrication, and erection firm, plus complete Pre-Engineered Metal Buildings. We manage every phase under one coordinated team, delivering end-to-end solutions for commercial and industrial projects nationwide.</p>
-    <div class="cta-row">
-      <a href="tel:7132552172" class="btn btn-accent">Call (713) 255-2172</a>
-      <a href="mailto:info@nanocubeusa.com?subject=Project%20Inquiry" class="btn btn-ghost">Email drawings &rarr;</a>
-    </div>
-  </div>
-  <span class="illus">Illustrative render</span>
-</header>
-
-<!-- RIBBON -->
-<div class="ribbon">
-  <div class="wrap"><div class="grid">
-    <div class="cell"><div class="v">Est. 2017</div><div class="l">Houston, Texas</div></div>
-    <div class="cell"><div class="v">5 Capabilities</div><div class="l">Under one roof</div></div>
-    <div class="cell"><div class="v">One Team</div><div class="l">Concept to erection</div></div>
-    <div class="cell"><div class="v">Nationwide</div><div class="l">Commercial &amp; industrial</div></div>
-  </div></div>
-</div>
-
-<!-- CAPABILITIES -->
-<section class="panel" id="capabilities">
-  <div class="wrap">
-    <div class="shead reveal">
-      <span class="eyebrow">Our core capabilities</span>
-      <h2>Five capabilities. <span class="accent">One coordinated team.</span></h2>
-      <p>From engineering and fabrication to erection and complete metal buildings, we carry the full scope in-house. One company on the hook from the first calculation to the last bolt.</p>
-    </div>
-    <div class="caps reveal">
-
-      <div class="cap">
-        <span class="n">/ 01</span>
-        <h3>Structural Steel Engineering</h3>
-        <ul>
-          <li>Structural analysis and design to AISC, IBC, and applicable local codes</li>
-          <li>Engineered solutions for buildings, mezzanines, canopies, platforms, and special structures</li>
-          <li>SJI-compliant joist and joist-girder design, engineer-reviewed</li>
-          <li>PE-signed and stamped calculations and drawings</li>
-          <li>Value engineering of member sizes, connections, and overall steel tonnage</li>
-        </ul>
-      </div>
-
-      <div class="cap">
-        <span class="n">/ 02</span>
-        <h3>Steel Fabrication</h3>
-        <ul>
-          <li>In-house fabrication of columns, beams, girders, joists, and bracing</li>
-          <li>HSS, W-shapes, plates, and built-up members</li>
-          <li>AWS-compliant welding procedures</li>
-          <li>CNC cutting, drilling, and precision fit-up</li>
-          <li>Quality control and inspection at every stage</li>
-        </ul>
-      </div>
-
-      <div class="cap">
-        <span class="n">/ 03</span>
-        <h3>Steel Erection</h3>
-        <ul>
-          <li>Professional erection crews experienced in commercial and industrial work</li>
-          <li>Multi-level structures and mezzanines</li>
-          <li>Detailed erection plans, sequencing, and crane coordination</li>
-          <li>Safety-focused execution with adherence to OSHA requirements</li>
-        </ul>
-      </div>
-
-      <div class="cap">
-        <span class="n">/ 04</span>
-        <h3>Misc. &amp; Secondary Steel</h3>
-        <ul>
-          <li>Stairs, handrails, and guardrails</li>
-          <li>Ladders, platforms, frames, embeds, and custom steel assemblies</li>
-          <li>Canopies, supports, and architectural steel components</li>
-          <li>Fully coordinated shop drawings and connection details</li>
-        </ul>
-      </div>
-
-      <div class="cap full">
-        <span class="n">/ 05</span>
-        <h3>Pre-Engineered Metal Buildings (PEMB)</h3>
-        <ul>
-          <li>Complete PEMB manufacturing and delivery</li>
-          <li>Turnkey primary frames</li>
-          <li>Secondary framing: purlins, girts, and bracing</li>
-          <li>Roof and wall panels with insulation</li>
-          <li>Openings, trims, and accessories</li>
-          <li>Integrated engineering, fabrication, and erection for seamless delivery</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- IMAGE BLOCK: single source -->
-<section class="block short reveal" style="background-image:url('img/frame.jpg')">
-  <div class="wrap">
-    <span class="eyebrow kicker">One coordinated team</span>
-    <h2>From concept to <span class="accent">final erection.</span></h2>
-    <p class="lead">Most projects pass through three or four companies before the steel goes up. We manage every phase, from concept and detailing to fabrication and final erection, under one coordinated team. One number to call. One company accountable.</p>
-  </div>
-  <span class="illus">Illustrative render</span>
-</section>
-
-<!-- 3D MODELS -->
-<section class="panel" id="models">
-  <div class="wrap">
-    <div class="shead reveal">
-      <span class="eyebrow">Modeled before it is built</span>
-      <h2>Detailed in <span class="accent">3D.</span></h2>
-      <p>Every member modeled and coordinated in 3D before a beam is cut. Detailing models drive clash-free fabrication and a faster, cleaner erection in the field.</p>
-    </div>
-    <div class="models reveal">
-      <figure class="model"><img src="img/model_frame.png" alt="3D structural steel detailing model"><figcaption>Illustrative detailing model</figcaption></figure>
-      <figure class="model"><img src="img/model_wire.png" alt="3D structural framing model"><figcaption>Illustrative framing model</figcaption></figure>
-      <figure class="model"><img src="img/model_small.png" alt="3D structural steel model"><figcaption>Illustrative detailing model</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section class="panel alt" id="process">
-  <div class="wrap">
-    <div class="shead reveal">
-      <span class="eyebrow">How a project moves</span>
-      <h2>Four phases, <span class="accent">one partner.</span></h2>
-    </div>
-    <div class="spine reveal">
-      <div class="stage"><span class="n">/ 01</span><h3>Concept</h3><p>We start from a site, a use, or a set of drawings and define what is feasible.</p></div>
-      <div class="stage"><span class="n">/ 02</span><h3>Engineer &amp; Detail</h3><p>Structural engineering and detailing to AISC, PE-sealed and shop-ready.</p></div>
-      <div class="stage"><span class="n">/ 03</span><h3>Fabricate</h3><p>In-house fabrication with AWS-compliant welding and CNC precision.</p></div>
-      <div class="stage"><span class="n">/ 04</span><h3>Erect</h3><p>Field erection by professional crews, sequenced and OSHA-compliant.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY -->
-<section class="panel" id="why">
-  <div class="wrap">
-    <div class="shead reveal">
-      <span class="eyebrow">Why Nano Cube USA</span>
-      <h2>Single source. <span class="accent">Real accountability.</span></h2>
-      <p>We welcome the opportunity to partner with you and deliver value through thoughtful design, precision fabrication, and seamless execution.</p>
-    </div>
-    <div class="why reveal">
-      <div class="item"><div class="n">01</div><h3>Single-source responsibility</h3><p>One firm from engineering to erection. No gaps between trades, no finger-pointing.</p></div>
-      <div class="item"><div class="n">02</div><h3>Faster timelines</h3><p>Integrated workflows compress the schedule from detailing to the field.</p></div>
-      <div class="item"><div class="n">03</div><h3>Cost-effective, constructible</h3><p>Designs engineered to build, with value engineering on tonnage and connections.</p></div>
-      <div class="item"><div class="n">04</div><h3>Licensed engineering</h3><p>Strong technical expertise backed by licensed professional engineers.</p></div>
-      <div class="item"><div class="n">05</div><h3>Reliable support</h3><p>Dependable coordination through design and the full construction phase.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- IMAGE BLOCK: markets atmospheric -->
-<section class="block short reveal" style="background-image:url('img/erection.jpg')">
-  <div class="wrap">
-    <span class="eyebrow kicker">Built for the work</span>
-    <h2>Commercial and industrial. <span class="accent">Nationwide.</span></h2>
-    <p class="lead">Conventional rolled structural steel and complete metal buildings for the projects that have to stand up and get used.</p>
-  </div>
-  <span class="illus">Illustrative render</span>
-</section>
-
-<!-- MARKETS -->
-<section class="panel" id="markets">
-  <div class="wrap">
-    <div class="shead reveal">
-      <span class="eyebrow">Experience in</span>
-      <h2>One partner. <span class="accent">Many builds.</span></h2>
-    </div>
-    <div class="chips reveal">
-      <div class="chip"><span class="n">/ 01</span><h3>Commercial Buildings</h3></div>
-      <div class="chip"><span class="n">/ 02</span><h3>Industrial Facilities</h3></div>
-      <div class="chip"><span class="n">/ 03</span><h3>Multi-Level Structures</h3></div>
-      <div class="chip"><span class="n">/ 04</span><h3>Mezzanines</h3></div>
-      <div class="chip"><span class="n">/ 05</span><h3>PEMB Systems</h3></div>
-    </div>
-  </div>
-</section>
-
-<!-- SAFETY + CREDENTIALS -->
-<section class="panel alt" id="safety">
-  <div class="wrap">
-    <div class="shead reveal">
-      <span class="eyebrow">Safety and compliance</span>
-      <h2>Certified <span class="accent">and insured.</span></h2>
-      <p>A safety director on staff, certified welding leadership, and AISC shop standards. Prequalified through ISNetworld and fully insured through Texas Mutual.</p>
-    </div>
-    <div class="creds reveal">
-      <div class="cred"><div class="t">ISNetworld</div><div class="s">ID 400-772237</div></div>
-      <div class="cred"><div class="t">NCCER</div><div class="s">#27160819</div></div>
-      <div class="cred"><div class="t">Safety Director</div><div class="s">On staff</div></div>
-      <div class="cred"><div class="t">AISC 360</div><div class="s">Shop standards</div></div>
-      <div class="cred"><div class="t">AWS D1.1</div><div class="s">Certified welding</div></div>
-      <div class="cred"><div class="t">TX Mutual</div><div class="s">Full coverage</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="block short reveal" id="contact" style="background-image:url('img/cta.jpg')">
-  <div class="wrap">
-    <span class="eyebrow kicker">Let's build</span>
-    <h2>Bring us a site, a concept, or a <span class="accent">set of drawings.</span></h2>
-    <p class="lead">For additional information, qualifications, or to request a proposal, contact us. We look forward to building something exceptional together.</p>
-    <div class="cta-row">
-      <a href="tel:7132552172" class="btn btn-accent">Call (713) 255-2172</a>
-      <a href="mailto:info@nanocubeusa.com?subject=Project%20Inquiry" class="btn btn-ghost">Email drawings &rarr;</a>
-    </div>
-  </div>
-  <span class="illus">Illustrative render</span>
-</section>
-
-<footer>
-  <div class="wrap foot">
-    <span class="brand">
-      <img src="img/logo.png" alt="Nano Cube USA" class="brand-logo">
-    </span>
-    <span class="addr">8630 Fairbanks N Houston Rd &middot; Houston, TX 77064 &middot; (713) 255-2172</span>
-    <span class="copy">&copy; 2026 Nano Cube USA, LLC</spa
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Nano Cube USA - Structural Steel &amp; Complete Building Shells</title><meta name="description" content="Houston structural steel for the complete building shell in conventional steel: frame, roof, and full exterior envelope as one package. Tilt-wall, industrial, commercial. Nationwide."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script></head><body><nav><div class="nav-in"><a href="index.html" class="brand"><img src="img/logo.png" alt="Nano Cube USA" class="brand-logo"><span class="sheen" aria-hidden="true"></span></a><button class="menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button><div class="nav-links" id="navLinks"><a href="index.html" class="on">Home</a><a href="complete-shell.html">Complete Shell</a><a href="developers.html">For Developers</a><a href="architects.html">For Architects</a><a href="https://training.nanocubeusa.com" target="_blank" rel="noopener">Team Login</a><a href="tel:7132552172" class="nav-call">(713) 255-2172</a></div></div></nav><header class="block hero" style="background-image:url('img/tiltwall.jpg')"><div class="wrap"><span class="eyebrow lite">Design &middot; Engineer &middot; Fabricate &middot; Envelope &middot; Erect</span><h1 style="margin:16px 0 0">You design the place.<br><span class="accent">We frame and close it in.</span></h1><p class="lead">Nano Cube USA designs, engineers, fabricates, and erects the complete building shell in conventional steel. The frame, the roof, and the full exterior envelope as one package, one team accountable for the structure and the skin.</p><div class="cta-row"><a href="complete-shell.html" class="btn btn-accent">See the complete shell</a><a href="tel:7132552172" class="btn btn-ghost">Call (713) 255-2172</a></div></div><span class="illus">Structural steel + tilt-wall construction</span></header><div class="strip"><div class="wrap"><span>Design</span><span>Engineer</span><span>Fabricate</span><span>Envelope</span><span>Erect</span></div></div><section class="s"><div class="wrap"><div class="feat reveal"><div class="imgwrap"><img src="img/tiltwall.jpg" alt="Structural steel frame inside tilt-wall industrial construction"></div><div class="body"><span class="tag">Tilt-wall construction</span><div class="rule"></div><h2>Steel built for tilt-wall <span class="accent">industrial.</span></h2><p>Tilt-wall is the fastest-moving format in industrial and distribution construction, and the structural steel inside it is ours. We fabricate and erect the columns, joists, roof framing, deck, and bracing that frame tilt-up concrete shells, then close them in with a complete envelope.</p><p>One team for the steel package and the skin, sequenced to keep the slab, the panels, and the frame moving together, not waiting on each other.</p><div class="cta-row" style="margin-top:24px"><a href="developers.html" class="btn btn-dark">Built for developers &rarr;</a></div></div></div></div></section><section class="s3d" id="steel3d"><canvas id="steelCanvas"></canvas><img class="fallback" src="img/model_frame.png" alt="3D structural steel model"><div class="s3d-tag">Live 3D &middot; structural steel assembly</div><div class="s3d-cap"><span class="eyebrow lite">Modeled, fabricated, erected</span><h2>Watch it <span class="accent">come together.</span></h2><p>Every column, beam, joist, and deck, detailed in 3D and built by one team, from the first piece of steel to a closed-in shell.</p></div></section><section class="s alt"><div class="wrap"><div class="feat rev reveal"><div class="body"><span class="eyebrow">The difference</span><div class="rule" style="margin-top:18px"></div><h2>Not a pre-engineered <span class="accent">metal building.</span></h2><p>We frame in conventional rolled steel, not prefab kits. Your building carries the future loads, retrofits, and hanging equipment a PEMB cannot. A real structure, closed in tight, built to endure.</p><p>Conventional W-shapes, HSS, joists, and connections, detailed in Tekla and sealed by a licensed PE, then erected by our own crews.</p></div><div class="imgwrap"><img src="img/frame.jpg" alt="Conventional rolled structural steel frame"></div></div></div></section><section class="s"><div class="wrap"><div class="shead reveal"><div class="rule"></div><span class="eyebrow">One scope. No gaps.</span><h2>Frame and envelope, <span class="accent">planned as one.</span></h2><p>Your construction administration phase runs on one submittal stream, one number, one schedule. No stitching five trades together on site.</p></div><div class="cards reveal"><div class="card"><div class="pn">01</div><h3>Single-source responsibility</h3><p>One accountable team from engineering through erection. No gaps between trades, no finger-pointing.</p></div><div class="card"><div class="pn">02</div><h3>Fewer field surprises</h3><p>Steel and envelope detailed together in Tekla and clash-checked before anything leaves the shop.</p></div><div class="card"><div class="pn">03</div><h3>Value engineering early</h3><p>Applied at feasibility, before schematics lock, so the pro forma is real from day one.</p></div><div class="card"><div class="pn">04</div><h3>A continuous envelope</h3><p>Vapor control, waterproofing, and insulation planned as part of the structural package, not bolted on after.</p></div><div class="card"><div class="pn">05</div><h3>Conventional rolled steel</h3><p>Carries the future loads, retrofits, and hanging equipment your building is built to outlast.</p></div><div class="card"><div class="pn">06</div><h3>All work in-house</h3><p>AISC 207-25, AWS D1.1, SJI Spec 100, and OSHA standards. ISNetworld certified, design to punchlist.</p></div></div></div></section><section class="s alt"><div class="wrap"><div class="shead reveal"><div class="rule"></div><span class="eyebrow">Where we fit your process</span><h2>Built around <span class="accent">how you work.</span></h2></div><div class="aud reveal"><a href="complete-shell.html"><span class="k">The product</span><h3>The Complete Shell</h3><p>Frame to closed in. Five phases, one team, itemized scope from structure to envelope.</p><div class="go">Explore <span class="accent">&rarr;</span></div></a><a href="developers.html"><span class="k">For developers &amp; owners</span><h3>Real pro forma certainty</h3><p>Priced at massing, single-source schedule, national logistics from our Houston shop.</p><div class="go">Explore <span class="accent">&rarr;</span></div></a><a href="architects.html"><span class="k">For architects</span><h3>Design intent, framed in steel</h3><p>Tekla and BIM coordination, expressed steel vocabulary, a continuous insulated envelope.</p><div class="go">Explore <span class="accent">&rarr;</span></div></a></div></div></section><section class="s"><div class="wrap"><div class="shead reveal"><div class="rule"></div><span class="eyebrow">Built for any use</span><h2>If it frames in steel, <span class="accent">we close it in.</span></h2></div><div class="chips reveal"><span class="chip">Retail</span><span class="chip">Office</span><span class="chip">Warehouse & Distribution</span><span class="chip">Mixed-Use</span><span class="chip">Light Industrial</span><span class="chip">Multi-Family</span><span class="chip">Education</span><span class="chip">Wellness & Recreation</span><span class="chip">Commercial</span><span class="chip">Religious</span><span class="chip">Automotive</span></div></div></section><section class="closing"><div class="wrap reveal"><span class="eyebrow">Let's build</span><h2>Send us a set, or a concept.</h2><p>We price and detail the complete shell. Direct with you, or alongside your client.</p><div class="cta-row" style="justify-content:center"><a href="tel:7132552172" class="btn btn-dark">Call (713) 255-2172</a><a href="mailto:matthew@nanocubeusa.com?subject=Project%20Inquiry" class="btn btn-ghost">Email drawings &rarr;</a></div></div></section><footer><div class="wrap"><div class="fcerts"><div class="fcert"><div class="t">AISC 207-25</div><div class="s">Quality Certified</div></div><div class="fcert"><div class="t">AWS D1.1</div><div class="s">Structural Welding</div></div><div class="fcert"><div class="t">SJI Spec 100</div><div class="s">Open-Web Joists</div></div><div class="fcert"><div class="t">OSHA 1926</div><div class="s">Safety Compliant</div></div><div class="fcert"><div class="t">ISNetworld</div><div class="s">ID 400-772237</div></div></div><div class="fmain"><div class="l"><img src="img/logo.png" alt="Nano Cube USA"><p>Conventional steel construction. Complete building shells. One team from design to punchlist.</p></div><div class="r">NANO CUBE USA, LLC<br>8630 Fairbanks N Houston Rd, Houston, TX 77064<br><a href="tel:7132552172">(713) 255-2172</a><br><a href="mailto:matthew@nanocubeusa.com">matthew@nanocubeusa.com</a></div></div><div class="fbase"><span>&copy; 2026 Nano Cube USA, LLC</span><span>Design &middot; Engineer &middot; Fabricate &middot; Envelope &middot; Erect</span></div></div></footer><script>
+(function(){
+  var host=document.getElementById('steel3d');
+  if(!host){return;}
+  if(!window.THREE){ host.classList.add('nowebgl'); return; }
+  var canvas=document.getElementById('steelCanvas'); var renderer;
+  try{ renderer=new THREE.WebGLRenderer({canvas:canvas,alpha:true,antialias:true}); }
+  catch(e){ host.classList.add('nowebgl'); return; }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+  var scene=new THREE.Scene(); scene.fog=new THREE.Fog(0x131c25,34,74);
+  var camera=new THREE.PerspectiveCamera(36,1,0.1,300);
+  scene.add(new THREE.HemisphereLight(0xbcd2ff,0x10161d,0.85));
+  scene.add(new THREE.AmbientLight(0xffffff,0.18));
+  var key=new THREE.DirectionalLight(0xffffff,1.05); key.position.set(14,22,12); scene.add(key);
+  var rim=new THREE.DirectionalLight(0xe8324a,0.55); rim.position.set(-16,8,-12); scene.add(rim);
+  var steel=new THREE.MeshStandardMaterial({color:0x9aa6b2,metalness:0.78,roughness:0.4});
+  var dark=new THREE.MeshStandardMaterial({color:0x6e7b88,metalness:0.72,roughness:0.5});
+  var deckMat=new THREE.MeshStandardMaterial({color:0xb6bfc9,metalness:0.45,roughness:0.65});
+  var grp=new THREE.Group(); scene.add(grp);
+  var grid=new THREE.GridHelper(80,40,0x33455a,0x1d2935); grp.add(grid);
+  var members=[];
+  function bar(mat,w,h,d,x,y,z,delay){
+    var m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat);
+    m.position.set(x,y,z); m.userData={toY:y,fromY:y+16,delay:delay,dur:0.62};
+    grp.add(m); members.push(m); return m;
+  }
+  var BX=[-9,-3,3,9], BZ=[-5,0,5], H=6, c=0.5, d=0, i, j, x;
+  for(i=0;i<BX.length;i++)for(j=0;j<BZ.length;j++){ bar(steel,c,H,c,BX[i],H/2,BZ[j],d); d+=0.05; }
+  for(j=0;j<BZ.length;j++){ bar(steel,18.4,0.5,0.42,0,H,BZ[j],d); d+=0.11; }
+  for(i=0;i<BX.length;i++){ bar(steel,0.42,0.5,10.4,BX[i],H,0,d); d+=0.09; }
+  var jd=d;
+  for(x=-8.4;x<=8.4;x+=1.2){ bar(dark,0.18,0.3,10.2,x,H+0.4,0,jd); jd+=0.035; }
+  bar(deckMat,18.8,0.12,10.8,0,H+0.64,0,jd+0.25);
+  function brace(bx,bz,dl){
+    var len=Math.sqrt(36+H*H), a=Math.atan2(6,H), b;
+    b=new THREE.Mesh(new THREE.BoxGeometry(0.16,len,0.16),dark); b.position.set(bx,H/2,bz); b.rotation.z=a;
+    b.userData={toY:H/2,fromY:H/2+16,delay:dl,dur:0.62}; grp.add(b); members.push(b);
+    b=new THREE.Mesh(new THREE.BoxGeometry(0.16,len,0.16),dark); b.position.set(bx,H/2,bz); b.rotation.z=-a;
+    b.userData={toY:H/2,fromY:H/2+16,delay:dl+0.04,dur:0.62}; grp.add(b); members.push(b);
+  }
+  brace(-9,-5,jd+0.3); brace(9,5,jd+0.36);
+  grp.position.y=-2.4;
+  function ease(t){ return 1-Math.pow(1-t,3); }
+  members.forEach(function(m){ m.position.y=m.userData.fromY; m.visible=false; });
+  var clock=new THREE.Clock(); var start=1e9;
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ start=clock.getElapsedTime(); } }); },{threshold:0.25});
+  io.observe(host);
+  function resize(){ var w=host.clientWidth,h=host.clientHeight||1; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); }
+  function frame(){
+    requestAnimationFrame(frame);
+    var t=clock.getElapsedTime(), local=t-start;
+    for(var k=0;k<members.length;k++){ var m=members[k],u=m.userData,lt=(local-u.delay)/u.dur;
+      if(lt<=0){ m.visible=false; } else { m.visible=true; m.position.y=u.fromY+(u.toY-u.fromY)*ease(lt<1?lt:1); } }
+    var orbit=t*0.16, R=32;
+    camera.position.set(Math.cos(orbit)*R, 13+Math.sin(t*0.25)*1.4, Math.sin(orbit)*R);
+    camera.lookAt(0,2.2,0); renderer.render(scene,camera);
+  }
+  resize(); window.addEventListener('resize',resize); frame();
+})();
+</script><script>var mb=document.getElementById("menuBtn"),nl=document.getElementById("navLinks");if(mb){mb.addEventListener("click",function(){nl.classList.toggle("open")});nl.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){nl.classList.remove("open")})});}if("IntersectionObserver" in window){document.documentElement.classList.add("janim");var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12});document.querySelectorAll(".reveal").forEach(function(el){io.observe(el)});}</script></body></html>
