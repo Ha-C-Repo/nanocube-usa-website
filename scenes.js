@@ -56,33 +56,41 @@
         var br2=box(g,M.steel2,len,0.28,0.28); br2.position.set(midx,y0+story/2,7); br2.rotation.z=(k===0?-a:a); reg(L,br2,{s0:0.02,delay:d+lv*0.15+0.08,dur:0.4}); }); }
     g.position.y=-3.4; return {members:L,camR:38,camH:15,spin:0.14}; };
 
-  // ---- DETAILED concrete tilt-up building (dark) ----
+  // ---- DETAILED concrete tilt-up building (dark) - rebuilt 2026-06-17 per CEO ----
   B.tiltwall=function(g){ var L=[]; grid(g,80,40);
-    var W=18,D=12,H=6.5,d=0,i,x;
-    // interior W-columns
-    var cx=[-W/2+1,0,W/2-1], cz=[-D/2+1,0,D/2-1];
-    for(i=0;i<cx.length;i++)for(var j=0;j<cz.length;j++){ var col=wshape(g,M.steel,H,0.5,0.5,'y'); col.position.set(cx[i],H/2,cz[j]); reg(L,col,{delay:0.1+d,dur:0.45}); d+=0.04; }
-    // roof girders + open-web joists
-    for(i=0;i<cx.length;i++){ var gd=wshape(g,M.steel,D-1.5,0.55,0.45,'z'); gd.position.set(cx[i],H,0); reg(L,gd,{delay:0.4+d,dur:0.4}); d+=0.03; }
-    for(x=-W/2+1.6;x<=W/2-1.6;x+=1.3){ // open-web joist = top+bottom chord + web zigzag
-      var jt=box(g,M.dark,0.12,0.12,D-1); jt.position.set(x,H,0); reg(L,jt,{delay:0.7+d,dur:0.3});
-      var jb=box(g,M.dark,0.1,0.1,D-1); jb.position.set(x,H-0.55,0); reg(L,jb,{delay:0.72+d,dur:0.3});
-      for(var z=-D/2+1.2;z<D/2-1.2;z+=1.0){ var wv=box(g,M.dark,0.07,0.62,0.07); wv.position.set(x,H-0.28,z); wv.rotation.x=(Math.round((z+D)/1.0)%2?0.5:-0.5); reg(L,wv,{s0:0.05,delay:0.8+d,dur:0.25}); }
-      d+=0.02;
-    }
-    // standing-seam roof deck (ribs)
-    for(x=-W/2+0.6;x<=W/2-0.6;x+=0.7){ var rib=box(g,M.deck,0.12,0.14,D); rib.position.set(x,H+0.42,0); reg(L,rib,{from:new T.Vector3(0,9,0),delay:1.3+d,dur:0.5}); d+=0.006; }
-    var deckslab=box(g,M.deck,W-1,0.06,D); deckslab.position.set(0,H+0.34,0); reg(L,deckslab,{from:new T.Vector3(0,9,0),delay:1.3,dur:0.5});
-    // 4 thick concrete tilt-up panels with embedded plates - tilt up from flat
+    var W=18,D=12,H=6.5,d=0,i,j,x,z;
+    var cx=[-W/2+1.2,0,W/2-1.2], cz=[-D/2+1.2,0,D/2-1.2];
+    // interior W-shape steel columns - real I-beam section (2 flanges + web), RED
+    for(i=0;i<cx.length;i++)for(j=0;j<cz.length;j++){
+      var col=wshape(g,M.red,H,0.58,0.5,'y'); col.position.set(cx[i],H/2,cz[j]); reg(L,col,{from:new T.Vector3(0,3,0),delay:0.1+d,dur:0.45}); d+=0.04; }
+    // roof girders carrying the joists - real W-shape profile, YELLOW (span in z over the column lines)
+    for(i=0;i<cx.length;i++){ var gd=wshape(g,M.yellow,D-1.0,0.62,0.48,'z'); gd.position.set(cx[i],H+0.06,0); reg(L,gd,{from:new T.Vector3(0,3,0),delay:0.45+d,dur:0.4}); d+=0.03; }
+    var eg1=wshape(g,M.yellow,W-1.0,0.56,0.44,'x'); eg1.position.set(0,H+0.06,-D/2+1.2); reg(L,eg1,{from:new T.Vector3(0,3,0),delay:0.5,dur:0.4});
+    var eg2=wshape(g,M.yellow,W-1.0,0.56,0.44,'x'); eg2.position.set(0,H+0.06, D/2-1.2); reg(L,eg2,{from:new T.Vector3(0,3,0),delay:0.55,dur:0.4});
+    // open-web bar joists: top chord + bottom chord + real web zigzag, GRAY with RED seat accent
+    function joist(zc,delay){ var span=W-1.6, x0=-span/2, x1=span/2, ch=0.6, yT=H+0.40;
+      var tc=box(g,M.gray,span,0.10,0.17); tc.position.set(0,yT,zc); reg(L,tc,{from:new T.Vector3(0,2.5,0),delay:delay,dur:0.3});
+      var bc=box(g,M.gray,span,0.09,0.14); bc.position.set(0,yT-ch,zc); reg(L,bc,{from:new T.Vector3(0,2.5,0),delay:delay+0.02,dur:0.3});
+      var n=Math.round(span/1.0), pitch=span/n, k;
+      for(k=0;k<n;k++){ var xc=x0+pitch*(k+0.5); var diag=box(g,M.gray,0.07,Math.sqrt(ch*ch+pitch*pitch),0.07);
+        diag.position.set(xc,yT-ch/2,zc); diag.rotation.z=(k%2?1:-1)*Math.atan2(pitch,ch); reg(L,diag,{s0:0.05,delay:delay+0.04+k*0.006,dur:0.22}); }
+      var s1=box(g,M.glow,0.34,0.18,0.32); s1.position.set(x0+0.12,H+0.18,zc); reg(L,s1,{s0:0.01,delay:delay+0.05,dur:0.25});
+      var s2=box(g,M.glow,0.34,0.18,0.32); s2.position.set(x1-0.12,H+0.18,zc); reg(L,s2,{s0:0.01,delay:delay+0.05,dur:0.25}); }
+    for(z=-D/2+2.0; z<=D/2-2.0; z+=1.5){ joist(z,0.7+d); d+=0.02; }
+    // ribbed standing-seam roof deck - real fluted profile, LIGHT GRAY
+    var deckslab=box(g,M.deck,W-1,0.05,D-0.6); deckslab.position.set(0,H+0.78,0); reg(L,deckslab,{from:new T.Vector3(0,9,0),delay:1.4,dur:0.5});
+    for(x=-W/2+0.8;x<=W/2-0.8;x+=0.62){ var rib=box(g,M.deck,0.15,0.17,D-0.6); rib.position.set(x,H+0.88,0); reg(L,rib,{from:new T.Vector3(0,9,0),delay:1.45,dur:0.45}); }
+    // thick tilt-up concrete panels (WHITE/light) tilt up from flat, with darker embedded weld plates at bearing lines
     function panel(w,h,axis,sign,cx2,cz2,delay){ var grp=new T.Group();
-      var pn=box(grp,M.concrete,w,h,0.4); pn.position.y=h/2;
-      // embedded plates on inner face
-      for(var k=-1;k<=1;k++){ for(var m2=0;m2<2;m2++){ var ep=box(grp,M.embed,0.6,0.6,0.06); ep.position.set(k*w*0.3,h*(0.3+m2*0.4),(axis==='x'?-0.22*sign:0)); if(axis==='z'){ep.position.set((axis==='z'?-0.22*sign:0),h*(0.3+m2*0.4),k*w*0.3);} } }
+      var pn=box(grp,M.concrete,w,h,0.5); pn.position.y=h/2;
+      for(var k=-1;k<=1;k++){ for(var m2=0;m2<2;m2++){ var ep=box(grp,M.embed,0.66,0.66,0.07);
+        if(axis==='x'){ ep.position.set(k*w*0.30, h*(0.62+m2*0.26), -0.27*sign); }
+        else { ep.position.set(-0.27*sign, h*(0.62+m2*0.26), k*w*0.30); } } }
       grp.position.set(cx2,0,cz2); g.add(grp);
       var r0={x:0,y:0,z:0}; if(axis==='x'){r0.x=sign*Math.PI/2;} else {r0.z=sign*Math.PI/2;}
       L.push({obj:grp,p0:grp.position.clone(),p1:grp.position.clone(),r0:r0,r1:{x:0,y:0,z:0},delay:delay,dur:1.0}); }
-    panel(W,H+0.6,'x',-1,0,-D/2-0.2,0); panel(W,H+0.6,'x',1,0,D/2+0.2,0.3);
-    panel(D,H+0.6,'z',1,-W/2-0.2,0,0.6); panel(D,H+0.6,'z',-1,W/2+0.2,0,0.9);
+    panel(W,H+0.6,'x',-1,0,-D/2-0.25,0); panel(W,H+0.6,'x',1,0,D/2+0.25,0.3);
+    panel(D,H+0.6,'z',1,-W/2-0.25,0,0.6); panel(D,H+0.6,'z',-1,W/2+0.25,0,0.9);
     g.position.y=-2.6; return {members:L,camR:34,camH:13,spin:0.12}; };
 
   // ---- WHITE-BG isometric colored frame ----
