@@ -202,3 +202,12 @@ html.janim .reveal{opacity:0;transform:translateY(22px)}html.janim .reveal.in{op
 .videoband .bandvid{display:block;width:100%;height:clamp(320px,56vh,720px);object-fit:cover}
 .videoband .bandtag{position:absolute;left:24px;bottom:18px;line-height:1;font-family:var(--body);font-weight:700;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.42);padding:7px 12px;border:1px solid rgba(255,255,255,.22)}
 @media(max-width:680px){.videoband .bandvid{height:64vh}}
+/* ===== Home hero: video banner + text-below (2026-06-17 rev) ===== */
+.hero-banner{position:relative;height:60vh;min-height:400px;background:var(--navy);overflow:hidden}
+.hero-banner .herovid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;border:0;pointer-events:none}
+.banner-fade{position:absolute;left:0;right:0;bottom:0;height:130px;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(22,32,43,0),var(--navy))}
+.herolead{background:var(--navy);color:#fff;padding:52px 0 60px}
+.herolead .eyebrow{display:inline-block}
+.herolead h1{font-family:var(--display);font-weight:900;font-size:clamp(2.5rem,6vw,5.2rem);line-height:1.02;margin:14px 0 0;max-width:20ch}
+.herolead .lead{font-size:clamp(1.04rem,1.6vw,1.26rem);max-width:680px;margin:22px 0 30px;color:#eef0f2}
+@media(max-width:680px){.hero-banner{height:64vh;min-height:340px}}
