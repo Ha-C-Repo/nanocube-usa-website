@@ -181,4 +181,10 @@ html.janim .reveal{opacity:0;transform:translateY(22px)}html.janim .reveal.in{op
 .herobubble .cta-row{margin-top:28px}
 .s3d-cap .bubble{max-width:600px}
 .s3d-cap{pointer-events:none}
+/* readability: opaque bubble + light text over rotating 3D (Matthew) */
+.s3d-cap .bubble{background:rgba(16,18,22,.94);border:1px solid rgba(255,255,255,.06)}
+.s3d.light .s3d-cap .bubble h2{color:#ffffff;text-shadow:none}
+.s3d.light .s3d-cap .bubble p{color:#eef1f4;text-shadow:none}
+.s3d.light .s3d-cap .bubble .eyebrow{color:var(--accent-hi)}
+.s3d.light .s3d-tag{color:#5b6b79}
 @media(max-width:600px){.herobubble{padding:22px 22px}.bubble{padding:22px}}
