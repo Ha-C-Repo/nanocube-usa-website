@@ -211,3 +211,10 @@ html.janim .reveal{opacity:0;transform:translateY(22px)}html.janim .reveal.in{op
 .herolead h1{font-family:var(--display);font-weight:900;font-size:clamp(2.5rem,6vw,5.2rem);line-height:1.02;margin:14px 0 0;max-width:20ch}
 .herolead .lead{font-size:clamp(1.04rem,1.6vw,1.26rem);max-width:680px;margin:22px 0 30px;color:#eef0f2}
 @media(max-width:680px){.hero-banner{height:64vh;min-height:340px}}
+/* ===== ICD church 'completed build' feature band (2026-06-17) ===== */
+.feature{position:relative;background:#0d1116;line-height:0}
+.feature>img{display:block;width:100%;height:clamp(360px,52vh,640px);object-fit:cover}
+.feature .feature-cap{position:absolute;left:0;right:0;bottom:0;line-height:1.2;background:linear-gradient(0deg,rgba(12,16,21,.92),rgba(12,16,21,.12) 62%,transparent)}
+.feature .feature-cap .wrap{padding:30px 30px 36px}
+.feature .feature-cap .eyebrow{display:inline-block}
+.feature .feature-cap h2{font-family:var(--display);font-weight:900;color:#fff;font-size:clamp(1.7rem,3.4vw,2.7rem);margin:8px 0 0}
