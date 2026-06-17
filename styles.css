@@ -210,7 +210,7 @@ html.janim .reveal{opacity:0;transform:translateY(22px)}html.janim .reveal.in{op
 .herolead .eyebrow{display:inline-block}
 .herolead h1{font-family:var(--display);font-weight:900;font-size:clamp(2.5rem,6vw,5.2rem);line-height:1.02;margin:14px 0 0;max-width:20ch}
 .herolead .lead{font-size:clamp(1.04rem,1.6vw,1.26rem);max-width:680px;margin:22px 0 30px;color:#eef0f2}
-@media(max-width:680px){.hero-banner{height:64vh;min-height:340px}}
+@media(max-width:680px){.hero-banner{height:100svh;min-height:520px}}
 
 /* ===== Featured work (contained, NOT a hero) 2026-06-17 ===== */
 .featwork{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
