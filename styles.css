@@ -175,3 +175,10 @@ html.janim .reveal{opacity:0;transform:translateY(22px)}html.janim .reveal.in{op
 @keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 .hero .eyebrow{display:inline-block;animation:rise .8s .05s both}.hero h1{animation:rise .9s .16s both}
 .hero p.lead{animation:rise .9s .32s both}.hero .cta-row{animation:rise .9s .46s both}
+
+/* bubbles on hero + 3D captions (Matthew) */
+.herobubble{display:inline-block;max-width:820px;background:rgba(20,22,26,.82);border-radius:14px;padding:34px 40px;box-shadow:0 26px 70px -26px rgba(0,0,0,.9)}
+.herobubble .cta-row{margin-top:28px}
+.s3d-cap .bubble{max-width:600px}
+.s3d-cap{pointer-events:none}
+@media(max-width:600px){.herobubble{padding:22px 22px}.bubble{padding:22px}}
